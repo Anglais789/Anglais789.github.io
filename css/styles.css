@@ -151,7 +151,7 @@ footer {
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #0970ac;
     color: white;
 }
 
@@ -180,7 +180,7 @@ footer {
     text-align: justify;
 }
 
-img {
+.im img {
     width: 100%;
     box-shadow: 0 5px 8px #505050;
 }
