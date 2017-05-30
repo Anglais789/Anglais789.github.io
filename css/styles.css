@@ -1,5 +1,6 @@
 body {
     padding-top: 70px;
+    background-color: #FFD89E;
     font-family: Georgia;
 }
 
@@ -21,7 +22,6 @@ body {
     font-size: 16px;
     text-align: justify;
     padding: 1em;
-    font-family: georgia;
 }
 
 .devlist {
