@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="css/styles.css" rel="stylesheet">
 
@@ -15,6 +16,7 @@
     <meta property="og:locale" content="en_EN" />
     <meta property="og:site_name" content="Virtual Reality" />
     <meta property="og:description" content="Website about virtual reality" />
+
 </head>
 
     <body>
@@ -43,7 +45,7 @@
         </header>
         <div class="container">
             <div class="row">
-                <div class="col-md-7 block"><div class="content">
+                <div id="div1" class="col-md-7 block"><div class="content">
                     <h1>How does VR actually work?</h1>
                     <p class="what">
                         How does VR work? How does wearable tech make you think you're standing on Mars when you're actually about to bump into the kitchen counter? Well, with the army of virtual reality headsets ever expanding, we'll be explaining how they work.
@@ -54,26 +56,92 @@
                     </p></div>
                 </div>
                 <div class="col-md-5">
-                    <img id="bas" src="media/oc.png">
+                    <img id="img1" class="howimg" src="media/oc.png">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-5">
-                    <img id="bas" src="media/oc.png">
+                    <img class="howimg" id="img2" src="media/part2.jpg">
                 </div>
-                <div class="col-md-7 block"><div class="content">
-                    <h1>How does VR actually work?</h1>
+                <div id="div2" class="col-md-7 block"><div class="content">
+                    <h1>The basics</h1>
                     <p class="what">
-                         How does VR work? How does wearable tech make you think you're standing on Mars when you're actually about to bump into the kitchen counter? Well, with the army of virtual reality headsets ever expanding, we'll be explaining how they work.
-                        While devices generally take the same form, how they project imaging in front of our eyes varies greatly. The likes of the HTC Vive and Oculus Rift provide PC-based operations, though major players such as Google and Samsung offer more affordable, smartphone-based headsets. Sony have also managed to crack the console scene with Playstation VR.
+                        VR headsets like Oculus Rift and PlayStation VR are often referred to as HMDs, which simply means they are head mounted displays. Even with no audio or hand tracking, holding up Google Cardboard to place your smartphone's display in front of your face can be enough to get you half-immersed in a virtual world.
+                        The goal of the hardware is to create what appears to be a life size, 3D virtual environment without the boundaries we usually associate with TV or computer screens. So whichever way you look, the screen mounted to your face follows you. This is unlike augmented reality, which overlays graphics onto your view of the real world.
 
-                        Once your headset and power source are secured, some kind of input is also required for you to connect - whether this is through head tracking, controllers, hand tracking, voice, on-device buttons or trackpads.
-                        Total immersion is what everyone making a VR headset, game or app is aiming towards - making the virtual reality experience so real that we forget the computer, headgear and accessories and act exactly as we would in the real world. So how do we get there?
+                        Video is sent from the console or computer to the headset via a HDMI cable in the case of headsets such as HTC's Vive and the Rift. For Google's Daydream headset and the Samsung Gear VR, it's already on the smartphone slotted into the headset.
+
+                        VR headsets use either two feeds sent to one display or two LCD displays, one per eye. There are also lenses which are placed between your eyes and the pixels, which is why the devices are often called goggles. In some instances, these can be adjusted to match the distance between your eyes, varying from person to person.
+                        These lenses focus and reshape the picture for each eye and create a stereoscopic 3D image by angling the two 2D images to mimic how each of our two eyes views the world ever-so-slightly differently. Try closing one eye then the other to see individual objects dance about from side to side and you get the idea behind this.
+                        One important way VR headsets can increase immersion is to increase the field of view i.e. how wide the picture is. A 360-degree display would be too expensive and unnecessary. Most high-end headsets make do with 100 or 110 degree field of view, which is wide enough to do the trick.
+                        And for the resulting picture to be at all convincing, a minimum frame rate of around 60 frames per second is needed to avoid stuttering or users feeling sick. The current crop of VR headsets go way beyond this - Oculus is capable of 90fps, for instance, while Sony's PlayStation VR manages 120fps.
+
                     </p></div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div id="div3" class="col-md-7 block"><div class="content">
+                    <h1>Head tracking</h1>
+                    <p class="what">
+                        Head tracking means that when you wear a VR headset, the picture in front of you shifts as you look up, down and side to side or angle your head. A system called 6DoF (six degrees of freedom) plots your head in terms of your X, Y and Z axis to measure head movements forward and backwards, side to side and shoulder to shoulder, otherwise known as pitch, yaw and roll.
+
+                        There's a few different internal components which can be used in a head-tracking system, such as a gyroscope, accelerometer and a magnetometer. Sony's PSVR also uses nine LEDs dotted around the headset to provide 360 degree head tracking thanks to an external camera monitoring these signals, while Oculus has 20 not as bright lights.
+                        Head-tracking tech needs low latency to be effective - we're talking 50 milliseconds or less or we will detect the lag between when we turn our head and when the VR environment changes. The Oculus Rift has an impressively minimised lag of just 30ms. Lag can also be a problem for any motion tracking inputs, such as PS Move-style controllers that measure our hand and arm movements.
+                        Finally, headphones can be used to increase the sense of immersion. Binaural or 3D audio can be used by app and game developers to tap into VR headsets' head-tracking technology to take advantage of this and give the wearer the sense that sound is coming from behind, to the side of them or in the distance.
+
+
+                    </p></div>
+                </div>
+                <div class="col-md-5">
+                    <img class="howimg" id="img3" src="media/head.jpg">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <img class="howimg" id="img4" src="media/motion.jpg">
+                </div>
+                <div id="div4" class="col-md-7 block"><div class="content">
+                    <h1>Motion tracking</h1>
+                    <p class="what">
+                        Head tracking is one big advantage the premium headsets have over the likes of Cardboard other mobile VR headsets. But the big VR players are still working out motion tracking. When you look down with a VR headset on the first thing you want to do is see your hands in a virtual space.
+                        For a while, we've seen the Leap Motion accessory - which uses an infrared sensor to track hand movements - strapped to the front of Oculus dev kits. We've also tried a few experiments with Kinect 2 cameras tracking our flailing bodies. But now we have exciting input options from Oculus, Valve and Sony.
+                        Oculus Touch is a set of wireless controllers designed to make you feel like you're using your own hands in VR. You grab each controller and use buttons, thumbsticks and triggers during VR games. So, for instance, to shoot a gun you squeeze on the hand trigger. There is also a matrix of sensors on each controller to detect gestures such as pointing and waving.
+
+                        It's a pretty similar set-up to Valve's Lighthouse positional tracking system and HTC's controllers for its Vive headset. It involves two base stations around the room which sweep the area with lasers. These can detect the precise position of your head and both hands based on the timing of when they hit each photocell sensor on both the headset and around each handheld controller. Like Oculus Touch, these also feature physical buttons too and incredibly you can have two Lighthouse systems in the same space to track multiple users.
+                        Other input methods can include anything from hooking an Xbox controller or joystick up to your PC, voice controls, smart gloves and treadmills such as the Virtuix Omni, which allow you to simulate walking around a VR environment with clever in-game redirections.
+                        And when it comes to tracking your physical position within a room, Oculus is looking to catch up to rival HTC's with the recent drop of its "experimental" system. Essentially, Rift owners now have the option to purchase a third sensor for $79 and add more coverage to their VR play area.
+                        The problem, though, is that this still isn't on par with HTC. While two SteamVR sensors for the HTC Vive can deliver a tracked play space of up to 225 square feet, two Constellation sensor cameras from Oculus only provides coverage of 25 square feet (with a third camera sending the recommended space goes up to 64 square feet).
+                        Sony is also hunting around this area, if a recent patent is anything to go by. The filing details a VR tracking system based on light and mirrors that uses a beam projector to determine the player's position, though whether such a feature would appear on the current device or second iteration of PSVR (or not at all) is all speculative at this stage.
+
+                    </p></div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div id="div5" class="col-md-7 block"><div class="content">
+                    <h1>Eye tracking</h1>
+                    <p class="what">
+                        Eye tracking is possibly the final piece of the VR puzzle. It's not available on the Rift, Vive or PS VR but it will feature in FOVE's very promising VR headset. So how does it work?
+                        Well, an infrared sensor monitor's your eyes inside the headset so FOVE knows where your eyes are looking in virtual reality. The main advantage of this - apart from allowing in-game characters to more precisely react to where you're looking - is to make depth of field more realistic.
+                        In standard VR headsets, everything is in pin-sharp focus which isn't how we're used to experiencing the world. If our eyes look at an object in the distance, for instance, the foreground blurs and vice versa. By tracking our eyes, FOVE's graphics engine can simulate this in a 3D space in VR. That's right, blur can be good.
+                        Headsets still need hi-res displays to avoid the effect of looking through a grid. Also what our eyes focus on needs to look as life-like as possible. Without eye tracking, with everything in focus as you move your eyes - but not your head - around a scene, simulation sickness is more likely. Your brain knows that something doesn't match up.
+
+                    </p></div>
+                </div>
+                <div class="col-md-5">
+                    <img class="howimg" id="img5" src="media/eye.jpg">
                 </div>
             </div>
 
 
         </div>
     </body>
+<script src="js/howquery.js"></script>
 </html>
+
+
+
+

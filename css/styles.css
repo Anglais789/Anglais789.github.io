@@ -180,7 +180,11 @@ footer {
     text-align: justify;
 }
 
-#bas {
+img {
     width: 100%;
     box-shadow: 0 5px 8px #505050;
+}
+
+.test {
+    margin-top: 50px;
 }

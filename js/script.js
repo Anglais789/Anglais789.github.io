@@ -1,3 +1,4 @@
+
 // Get the modal
 var modal1 = document.getElementById('Modal_Cardboard');
 var modal2 = document.getElementById('Modal_HTC');
