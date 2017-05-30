@@ -6,7 +6,7 @@ var modal4 = document.getElementById('Modal_Playstation');
 var modal5 = document.getElementById('Modal_Gear');
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsByClassName('close');
 
 // When the user clicks on the button, open the modal
 function cardboard() {
